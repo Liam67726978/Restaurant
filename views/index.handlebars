@@ -17,7 +17,7 @@
           <div class="input-group-append">
             <button class="btn btn-major" type="submit" id="search-button"><i
                 class="fas fa-search"
-              ></i></button>
+              ></i></button> 
           </div>
         </div>
       </form>
@@ -27,6 +27,10 @@
 
 <!-- restaurant list -->
 <div class="container mt-5 px-md-5">
+  {{! 如果沒有符合的結果 }}
+  {{#if message}}
+    <div class="alert alert-danger">{{message}}</div>
+  {{/if}}
   <div class="row">
     {{#each restaurant}}
       <div class="col-12 col-sm-6 col-md-4">

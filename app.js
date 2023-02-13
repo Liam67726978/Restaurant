@@ -32,6 +32,11 @@ app.get("/search", (req, res) => {
       result.name.toLowerCase().includes(req.query.keyword.toLowerCase()) ||
       result.category.toLowerCase().includes(req.query.keyword.toLowerCase())
   );
+  // 如果沒有符合的結果，傳送一個信息給用戶
+  if (keyword.length === 0) {
+    return res.render("index", { message: "沒有符合的結果" });
+  }
+
   res.render("index", { restaurant: keyword });
 });
 
